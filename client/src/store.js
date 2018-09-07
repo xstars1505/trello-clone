@@ -2,19 +2,19 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 
 import feathersVuex from 'feathers-vuex';
-import feathersClient from './feathers-client';
+import feathersClient from '../../client/src/feathers-client';
 
-const { 
-  auth, 
-  FeathersVuex 
+const {
+  auth,
+  FeathersVuex,
 } = feathersVuex(feathersClient, { idField: '_id' });
 
-Vue.use(Vuex)
-Vue.use(FeathersVuex)
+Vue.use(Vuex);
+Vue.use(FeathersVuex);
 
 export default new Vuex.Store({
   plugins: [
     // Setup the auth plugin.
-    auth({ userService: 'users' })
-  ]
+    auth({ userService: 'users' }),
+  ],
 });
